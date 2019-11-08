@@ -1,0 +1,55 @@
+.body {
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    background-color: #053C5E;
+}
+
+.container {
+    background-color: #0A2239;
+    /*width: 300;*/
+    width: 900;
+    /*height: 340;*/
+    height: 600;
+    flex-direction: column;
+    /*margin-top: -30;*/
+    margin-top: 40;
+    margin-bottom: 40;
+}
+
+.login-form {
+    /*height: 150; - 610 - 380*/
+    height: 610;
+    flex-direction: column;
+    margin-top: 20;
+}
+
+.logo {
+    /*Lo comento, ya que no he puesto ni logo ni texto, así tengo más espacio*/
+    /*font-size: 20;
+    margin-top: 50;
+    text-align: center;*/
+}
+
+entry {
+    height: 50;
+    margin: 10 20 0;
+    color: #1F7A8C;
+}
+
+button {
+    background-color: #1F7A8C;
+    margin: 15 20 0;
+}
+
+.Valid {
+    background-color: #fff;
+}
+
+.InValid {
+    background-color: #ff0000;
+}
+
+.strength {
+    margin-top: 20;
+}

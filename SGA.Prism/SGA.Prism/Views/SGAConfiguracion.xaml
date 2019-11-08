@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:prism="http://prismlibrary.com"
+             xmlns:local="clr-namespace:SGA.Prism.Controls"
+			 prism:ViewModelLocator.AutowireViewModel="True"
+			 x:Class="SGA.Prism.Views.SGAConfiguracion"
+			 Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="../Resource/EntryValidationRD.xaml" />
+        <StyleSheet Source="../Style/LoginPage.css" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <FlexLayout x:Name="Form" StyleClass="body">
+                <FlexLayout x:Name="LoginForm" StyleClass="container"
+                             IsVisible="{Binding HidePage}">
+                    <Label StyleClass="logo" Text="" />
+                    <StackLayout StyleClass="login-form">
+                        <Grid RowSpacing="0" ColumnSpacing="0">
+                            <Image Source="ic_arrows" 
+								   VerticalOptions="CenterAndExpand"
+								   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
+                            <Entry
+							    x:Name="conexIP"
+							    Text="{Binding ConexIP, Mode=TwoWay}"
+							    IsSpellCheckEnabled="False"
+							    MaxLength="50"
+							    Placeholder="IP"
+							    PlaceholderColor="#999"
+							    TextColor="#f1f1f1"
+							    VerticalOptions="CenterAndExpand"
+							    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+								Margin="-10,0,10,0"/>
+
+                            <Image Source="ic_split" FlexLayout.Basis="20"
+								VerticalOptions="CenterAndExpand"
+								Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1"/>
+                            <Entry
+							    x:Name="conexPuerto"
+                                Text="{Binding ConexPuerto, Mode=TwoWay}"
+						        MaxLength="20"
+						        Placeholder="Puerto"
+						        PlaceholderColor="#999"
+						        TextColor="#f1f1f1" 
+							    VerticalOptions="CenterAndExpand"
+						        Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+								Margin="-10,0,10,0"/>
+
+
+                            <Image Source="ic_action_Version" FlexLayout.Basis="20"
+								VerticalOptions="CenterAndExpand"
+								Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"/>
+                            <Entry
+							    x:Name="conexBd"
+                                Text="{Binding ConexBd, Mode=OneTime}"
+						        MaxLength="20"
+						        Placeholder="Base de Datos"
+						        PlaceholderColor="#999"
+						        TextColor="#f1f1f1" 
+								VerticalOptions="CenterAndExpand"
+						        Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"
+								Margin="-10,0,10,0"/>
+
+                            <Image Source="ic_action_Db" FlexLayout.Basis="20"
+								VerticalOptions="CenterAndExpand"
+								Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1"/>
+                            <Entry
+							    x:Name="conexVersion"
+                                Text="{Binding ConexVersion, Mode=OneTime}"
+                                Keyboard="Numeric"
+						        MaxLength="20"
+						        Placeholder="Versión"
+						        PlaceholderColor="#999"
+						        TextColor="#f1f1f1" 
+								VerticalOptions="CenterAndExpand"
+						        Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+								Margin="-10,0,10,0"/>
+
+                            <Image
+                                x:Name="Imagen"
+                                Source="ic_action_ImageSerch" FlexLayout.Basis="20"
+								VerticalOptions="End"
+								Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"/>
+
+                            <Button
+                                x:Name="conexImagen"
+                                Text="Subir Imagen"
+                                VerticalOptions="StartAndExpand"
+                                Command="{Binding ButtonSelecImgCommand}"
+						        Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Image 
+                                x:Name="imagenLogo"
+                                Source="{Binding ImagenLogo, Mode=TwoWay}"
+                                Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" />
+
+                            <Image Source="ic_person_white" FlexLayout.Basis="20"
+								VerticalOptions="CenterAndExpand"
+								Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1"/>
+                            <Entry
+							    x:Name="conexUser"
+                                Text="{Binding ConexUser, Mode=TwoWay}"
+						        IsSpellCheckEnabled="false"
+						        MaxLength="20"
+						        Placeholder="Usuario"
+						        PlaceholderColor="#999"
+						        TextColor="#f1f1f1"
+						        VerticalOptions="CenterAndExpand"
+						        Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+								Margin="-10,0,10,0"/>
+
+                            <Image Source="ic_action_lock_outline" FlexLayout.Basis="20"
+								VerticalOptions="CenterAndExpand"
+								Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1"/>
+                            <Entry
+						        x:Name="conexPass"
+                                Text="{Binding ConexPass, Mode=TwoWay}"
+						        IsPassword="true"
+						        Placeholder="Contraseña"
+						        PlaceholderColor="#999"
+						        TextColor="#f1f1f1" 
+						        VerticalOptions="CenterAndExpand"
+						        Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"
+								Margin="-10,0,10,0">
+                                <Entry.Effects>
+                                    <local:ShowHidePassEffect />
+                                </Entry.Effects>
+                            </Entry>
+
+                            <Button
+						        x:Name="botonGuardar"
+						        IsEnabled="{Binding BotonGuardar}"
+						        Text="Guardar" 
+						        BackgroundColor="Green"
+						        Command="{Binding ButtonCommand}"
+								Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            
+                            <Button
+						        x:Name="botonPopUp"
+						        Text="Colores" 
+						        BackgroundColor="YellowGreen"
+						        Command="{Binding PopUpCommand}"
+								Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2"/>
+                            
+
+                            <Label 
+                                x:Name="conexRecordar"
+                                Text="Recordarme: " 
+								VerticalOptions="Center"
+                                HorizontalOptions="Center"
+								Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="1"/>
+                            <!--<Switch IsToggled="{Binding ConexRecordar, Mode=TwoWay}" OnColor="Green"-->
+                            <CheckBox IsChecked="{Binding ConexRecordar, Mode=TwoWay}"  
+                                      VerticalOptions="Center" HorizontalOptions="End"
+                                        Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="1"/>
+
+                            <Label
+								x:Name="LabelConnection"
+								HorizontalOptions="CenterAndExpand"
+								HorizontalTextAlignment="Center"
+								IsVisible="{Binding LabelConnection, Mode=TwoWay}"
+								TextColor="red"
+								Text="Sin Conexión a Internet"
+								VerticalOptions="CenterAndExpand"
+								Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+                        </Grid>
+                    </StackLayout>
+                </FlexLayout>
+            </FlexLayout>
+                    <Label 
+                        IsVisible="{Binding RevisarParametros}"
+                        x:Name="revisandoParametros"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        Text="Revisando Parámetros.."
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Title" />
+            <Label 
+                        IsVisible="{Binding L_RevisarInternet}"
+                        x:Name="l_RevisarInternet"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        Text="Revisando Parámetros.."
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Title" />
+            <Label 
+                        IsVisible="{Binding L_RevisarServidor}"
+                        x:Name="l_RevisarServidor"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        Text="Revisando Pin al Servidor"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Title" />
+            <Label 
+                        IsVisible="{Binding L_RevisarUsuario}"
+                        x:Name="l_RevisarUsuario"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        Text="Revisando Recordar Usuario .."
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Title" />
+        </Grid>
+
+                    
+
+    </ScrollView>
+</ContentPage>

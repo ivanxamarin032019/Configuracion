@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SGA.Prism.Views.SGAConfiguracionPopUp"
+             Title="{Binding Title}"
+             CloseWhenBackgroundIsClicked="False">
+    
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            
+            PositionIn="Bottom"
+            PositionOut="Top"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+       
+    <StackLayout 
+        BackgroundColor="White"
+        VerticalOptions="Center" 
+        HorizontalOptions="CenterAndExpand" 
+        Margin="40,0,40,0">
+        <StackLayout
+            BackgroundColor="Blue"
+            Orientation="Horizontal"
+            HorizontalOptions="FillAndExpand">
+            <Label 
+                HorizontalOptions="CenterAndExpand"
+                TextColor="White"
+                Text="COFIGURACION DE COLORES"
+                FontAttributes="Bold"
+                Padding="10"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="StartAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Margin="0,20,0,0">
+            <Label
+                TextColor="Black"
+                Text="Fondo Primario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                Margin="10,0,0,0"/>
+            <Entry
+                x:Name="FondoPrimario"
+                Unfocused="FondoPrimario_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorFondoPrimario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+            <Label
+                TextColor="Black"
+                Text="Fondo Segundario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"/>
+            <Entry
+                x:Name="FondoSecun"
+                Unfocused="FondoSecun_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorFondoSecundario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+            <Label
+                TextColor="Black"
+                Text="Fondo Terciario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"/>
+            <Entry
+                x:Name="FondoTer"
+                Unfocused="FondoTer_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorFondoTerciario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+        </StackLayout> <!--Color Fondo-->
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="StartAndExpand">
+            <Label
+                TextColor="Black"
+                Text="Botón Primario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                Margin="10,0,0,0"/>
+            <Entry
+                x:Name="BtnPrimario"
+                Unfocused="BtnPrimario_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorBotonPrimario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+            <Label
+                TextColor="Black"
+                Text="Botón Segundario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"/>
+            <Entry
+                x:Name="BtnSecun"
+                Unfocused="BtnSecun_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorBotonSecundario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+            <Label
+                TextColor="Black"
+                Text="Botón Terciario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"/>
+            <Entry
+                x:Name="BtnTer"
+                Unfocused="BtnTer_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorBotonTerciario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        <!--Color Botones-->
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="StartAndExpand">
+            <Label
+                TextColor="Black"
+                Text="Label Primario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                Margin="10,0,0,0"/>
+            <Entry
+                x:Name="LabelPrimario"
+                Unfocused="LabelPrimario_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorLabelPrimario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+            <Label
+                TextColor="Black"
+                Text="Label Segundario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"/>
+            <Entry
+                x:Name="LabelSecun"
+                Unfocused="LabelSecun_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorLabelSecundario, Mode=TwoWay}"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"/>
+            <Label
+                TextColor="Black"
+                Text="Color Danger      ."
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="EndAndExpand"/>
+            <Entry
+                x:Name="Danger"
+                Unfocused="Danger_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorDanger, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+        </StackLayout> <!--Colores Label & Danger -->
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="StartAndExpand">
+            <Label
+                TextColor="Black"
+                Text="Texto Primario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                Margin="10,0,0,0"/>
+            <Entry
+                x:Name="TextoPrimario"
+                Unfocused="TextoPrimario_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorTextoPrimario, Mode=TwoWay}"
+                VerticalOptions="Center"/>
+            <Label
+                TextColor="Black"
+                Text="Texto Segundario:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"/>
+            <Entry
+                x:Name="TextoSecun"
+                Unfocused="TextoSecun_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorTextoSecundario}"
+                VerticalOptions="Center"/>
+            <Label
+                TextColor="Black"
+                Text="Color Acentuado:"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"/>
+            <Entry
+                x:Name="Acentuado"
+                Unfocused="Acentuado_Unfocused"
+                WidthRequest="80"
+                MaxLength="7"
+                Keyboard="Text"
+                TextColor="Black"
+                Text="{Binding ParamColorAcentuado}"
+                VerticalOptions="Center"/>
+        </StackLayout> <!--TextoPrimario, TextoSecundario, Acentuado-->
+
+        <StackLayout>
+            <Label
+                FontSize="80"
+                Text=""
+                />
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal">
+            <Label 
+                FontSize="70"
+                Text=";-)"
+                TextColor="White"/>
+            <Button 
+                x:Name="BotonGuardar"
+                Margin="10,40,10,40"
+                Text="Guardar" 
+                Command="{Binding BotonGuardarColoresCommand, Mode=TwoWay}"
+                BackgroundColor="Navy"
+                HorizontalOptions="CenterAndExpand"/>
+            <Button 
+                x:Name="BotonCerrar"
+                Margin="10,40,10,40"
+                Text="Cerrar" 
+                Command="{Binding BotonCerrarColoresCommand, Mode=TwoWay}"
+                BackgroundColor="DarkRed"
+                HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </StackLayout>
+    
+    
+</pages:PopupPage>
