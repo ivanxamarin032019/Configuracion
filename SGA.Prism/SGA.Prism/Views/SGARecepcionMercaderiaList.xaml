@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:converters="clr-namespace:SGA.Prism.Converters;assembly=SGA.Prism"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="SGA.Prism.Views.SGARecepcionMercaderiaList"
              Title="{Binding Title}">
@@ -9,6 +10,12 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="ic_action_add_circle" Command="{Binding AddCommand}"/>
     </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTappedConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Label Text="" />
@@ -21,18 +28,18 @@
             Padding="10"/>
         <Label Text="" />
 
-        <StackLayout
+        <Grid
             Margin="50,10,50,50">
-            <ListView 
+            <ListView       Grid.Row="0"
                             x:Name="MercadriaList" 
                             BackgroundColor="#d9d9d9"
                             ItemsSource="{Binding SGAListItems}"
                             SeparatorColor="Navy">
-                <!--<ListView.Behaviors>
+                <ListView.Behaviors>
                     <prism:EventToCommandBehavior
                         EventName="ItemTapped" Command="{Binding ItemTappedCommand}" 
                         EventArgsConverter="{StaticResource ItemTappedConverter}" />
-                </ListView.Behaviors>-->
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -45,17 +52,15 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
-        <StackLayout
-                    Orientation="Horizontal"
-                    VerticalOptions="EndAndExpand"
-                    HorizontalOptions="CenterAndExpand">
             <Button
-                        Command="{Binding ContinuarCommand}"
-                        HeightRequest="100"
-                        WidthRequest="190"
-                    Text="Continuar"/>
-
-        </StackLayout>
+                Grid.Row="0"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Command="{Binding ContinuarCommand}"
+                HeightRequest="100"
+                WidthRequest="100"
+                CornerRadius="50"
+                Text="+"/>
+        </Grid>
     </StackLayout>
 </ContentPage>

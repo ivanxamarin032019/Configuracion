@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using SGA.Common.Models;
 
 namespace SGA.Prism.ViewModels
 {
@@ -79,5 +80,18 @@ namespace SGA.Prism.ViewModels
         {
             //Stream stream = await signature.GetImageStreamAsync(SignatureImageFormat.Jpeg);
         }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            var par1 = parameters["Parametro1"];
+            if (par1 != null)
+            {
+                var infoRecuperada = (SGARegistroMercancia)par1;
+                //Todo: Mapear los datos al objeto de precarga de informacion
+            }
+
+
+        }
+
     }
 }

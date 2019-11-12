@@ -17,7 +17,7 @@ namespace SGA.Prism.ViewModels
 
         private DelegateCommand _continuarCommand;
         private DelegateCommand _addCommand;
-        private DelegateCommand _itemTappedCommand;
+        private DelegateCommand<SGARegistroMercancia> _itemTappedCommand;
 
         public INavigationService _navigationService { get; }
 
@@ -36,12 +36,16 @@ namespace SGA.Prism.ViewModels
 
         public DelegateCommand ContinuarCommand => _continuarCommand ?? (_continuarCommand = new DelegateCommand(Continuar));
         public DelegateCommand AddCommand => _addCommand ?? (_addCommand = new DelegateCommand(Add));
-        public DelegateCommand ItemTappedCommand => _itemTappedCommand ?? (_itemTappedCommand = new DelegateCommand(ItemTapped));
+        public DelegateCommand<SGARegistroMercancia> ItemTappedCommand => _itemTappedCommand ?? (_itemTappedCommand = new DelegateCommand<SGARegistroMercancia>(ItemTapped));
 
-        private void ItemTapped()
+        private async void ItemTapped(SGARegistroMercancia obj)
         {
-            //var result = (Transfer)value;
+            NavigationParameters par = new NavigationParameters();
+            par.Add("Parametro1", obj);
+            await _navigationService.NavigateAsync("RecepcionMercaderia", par);
         }
+
+     
 
         private async void Continuar()
         {
