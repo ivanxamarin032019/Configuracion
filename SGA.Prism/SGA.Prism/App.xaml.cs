@@ -40,9 +40,13 @@ namespace SGA.Prism
             //    await NavigationService.NavigateAsync("/NavigationPage/LoginPage");
             //}
 
-            await NavigationService.NavigateAsync("Navigation/Configuracion");
+            //await NavigationService.NavigateAsync("Navigation/Configuracion");
             //await NavigationService.NavigateAsync("Navigation/Main");
 
+            await NavigationService.NavigateAsync("Navigation/RecepcionMercaderiaList");
+            //await NavigationService.NavigateAsync("Navigation/RecepcionMercaderia");
+
+            
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -52,6 +56,8 @@ namespace SGA.Prism
             //containerRegistry.RegisterForNavigation<TestConn, TestConnViewModel>("Test");
             containerRegistry.RegisterForNavigation<SGAConfiguracion, SGAConfiguracionViewModel>("Configuracion");
             containerRegistry.RegisterForNavigation<SGAConfiguracionPopUp, SGAConfiguracionPopUpViewModel>("ConfiguracionPopUp");
+            containerRegistry.RegisterForNavigation<SGARecepcionMercaderiaList, SGARecepcionMercaderiaListViewModel>("RecepcionMercaderiaList");
+            containerRegistry.RegisterForNavigation<SGARecepcionMercaderia, SGARecepcionMercaderiaViewModel>("RecepcionMercaderia");
         }
     }
 }

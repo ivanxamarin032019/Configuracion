@@ -273,7 +273,6 @@ namespace SGA.Prism.ViewModels
 
         async void Button_Clicked()
         {
-            //BotonGuardar = false;           
 
             if (string.IsNullOrEmpty(ConexIP))
             {

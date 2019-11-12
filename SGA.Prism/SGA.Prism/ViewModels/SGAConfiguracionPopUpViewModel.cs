@@ -4,6 +4,7 @@ using Prism.Navigation;
 using Prism.Services;
 using Rg.Plugins.Popup.Contracts;
 using Rg.Plugins.Popup.Services;
+using SGA.Prism.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

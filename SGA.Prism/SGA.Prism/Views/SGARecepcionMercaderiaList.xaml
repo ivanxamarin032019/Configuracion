@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SGA.Prism.Views.SGARecepcionMercaderiaList"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_action_add_circle" Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Label Text="" />
+        <Label 
+            FontSize="Title"
+            BackgroundColor="Navy"
+            HorizontalOptions="CenterAndExpand"
+            Text="Recepción Mercadería"
+            TextColor="White"
+            Padding="10"/>
+        <Label Text="" />
+
+        <StackLayout
+            Margin="50,10,50,50">
+            <ListView 
+                            x:Name="MercadriaList" 
+                            BackgroundColor="#d9d9d9"
+                            ItemsSource="{Binding SGAListItems}"
+                            SeparatorColor="Navy">
+                <!--<ListView.Behaviors>
+                    <prism:EventToCommandBehavior
+                        EventName="ItemTapped" Command="{Binding ItemTappedCommand}" 
+                        EventArgsConverter="{StaticResource ItemTappedConverter}" />
+                </ListView.Behaviors>-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5">
+                                <!--<Switch IsToggled = "{Binding Leido}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />-->
+                                <CheckBox IsChecked= "{Binding Leido}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Text="{Binding NombreConductor}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout
+                    Orientation="Horizontal"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+            <Button
+                        Command="{Binding ContinuarCommand}"
+                        HeightRequest="100"
+                        WidthRequest="190"
+                    Text="Continuar"/>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

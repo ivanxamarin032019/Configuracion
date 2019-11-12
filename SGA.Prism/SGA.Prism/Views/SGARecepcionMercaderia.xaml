@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:sign="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SGA.Prism.Views.SGARecepcionMercaderia"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <StackLayout
+            BackgroundColor="#5b7fb4">
+            <StackLayout
+                    BackgroundColor="#ffd614"
+                    Margin="10,10,10,10">
+                <StackLayout
+                     Padding="10"
+                    Orientation="Horizontal">
+                    <Label 
+                    HorizontalOptions="StartAndExpand"
+                    TextColor="Black"
+                    Text="Regristro boleta recepción de mercadería" />
+                </StackLayout>
+            </StackLayout>
+            <!--Recepcion-->
+
+            <StackLayout
+                Orientation="Vertical"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,10,0">
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="10">
+
+                    <Label Text="Almacén:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Picker Title="Seleccionar almacén" TextColor="Black" FontSize="16" ItemsSource="{Binding AlmacenList}" SelectedItem="{Binding SelectedAlmacen, Mode=TwoWay}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+            </StackLayout>
+            <!--Seleccionar almacén-->
+
+            <StackLayout
+                Orientation="Vertical"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,10,0">
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="10">
+
+                    <Label Text="# orden interna:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <!--orden interna-->
+
+            <StackLayout
+                Orientation="Vertical"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,10,0">
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="10">
+
+                    <Label Text="Transportista:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Picker Title="Seleccionar transportista" TextColor="Black" FontSize="16" ItemsSource="{Binding TransportistaList}" SelectedItem="{Binding SelectedTransportista, Mode=TwoWay}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+            </StackLayout>
+            <!--Seleccionar Transportista-->
+
+            <StackLayout
+                Orientation="Vertical"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,10,0">
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="10">
+
+                    <Label Text="# Referencia transportista:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <!--Referencia Transportista-->
+
+
+            <StackLayout
+                Orientation="Vertical"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,10,0">
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="10">
+
+                    <Label Text="Nombre conductor:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Entry Keyboard="Text" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <!--Nombre conductor-->
+
+
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="#5b7fb4"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,0,0">
+
+                <StackLayout
+                    BackgroundColor="White"
+                    HorizontalOptions="StartAndExpand"
+                    Orientation="Horizontal"
+                    Padding="10">
+
+                    <Label Text="# cajas" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout
+                    BackgroundColor="White"
+                    HorizontalOptions="StartAndExpand"
+                    Orientation="Horizontal"
+                    Padding="10">
+
+                    <Label Text="# sets" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <!--Cajas & set-->
+
+            <StackLayout
+                Orientation="Vertical"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,10,0">
+                <StackLayout
+                BackgroundColor="White"
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="10">
+
+                    <Label Text="Notas: " TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                    <Entry Keyboard="Text" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <!--Notas-->
+
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="#5b7fb4"
+                HorizontalOptions="FillAndExpand"
+                Margin="10,0,0,0">
+
+                <StackLayout
+                    BackgroundColor="White"
+                    HorizontalOptions="StartAndExpand"
+                    Orientation="Horizontal"
+                    Padding="10">
+                    <Image
+                        HeightRequest="200"
+                        WidthRequest="250"
+                                x:Name="imagenLogo"
+                                Source="{Binding ImagenCaptura, Mode=TwoWay}" />
+                    <Button
+                                x:Name="conexImagen"
+                                Text="Foto producto"
+                                VerticalOptions="StartAndExpand"
+                                Command="{Binding ButtonSelecImgCommand}"/>
+
+
+                </StackLayout>
+                <StackLayout
+                    HorizontalOptions="EndAndExpand"
+                    Orientation="Horizontal"
+                    Padding="10">
+
+                    <sign:SignaturePadView 
+                            x:Name="signature" 
+                            StrokeWidth="5" 
+                            WidthRequest="280" 
+                            HeightRequest="150" 
+                            BackgroundColor="White" 
+                            StrokeColor="Black" 
+                            CaptionText="Firma"
+                            Margin="0,0,10,0">
+                    </sign:SignaturePadView>
+
+                </StackLayout>
+            </StackLayout>
+            <!--Foto & Firma-->
+
+            <StackLayout
+                    Orientation="Horizontal"
+                    Padding="10"
+                    VerticalOptions="EndAndExpand">
+                <Button VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Style="{StaticResource secondaryButton}" Text="Recibir Cross" Command="{Binding _mainPageCommand}" />
+                <Label Text="" />
+                <Button VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Style="{StaticResource secondaryButton}" Text="Recibir Stock" Command="{Binding _mainPageCommand}" />
+            </StackLayout>
+            <!--Botones-->
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
