@@ -1,12 +1,8 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using SGA.Common.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace SGA.Prism.ViewModels
 {
@@ -18,10 +14,12 @@ namespace SGA.Prism.ViewModels
         private DelegateCommand _continuarCommand;
         private DelegateCommand _addCommand;
         private DelegateCommand<SGARegistroMercancia> _itemTappedCommand;
+        private string pickerAlmacen;
 
         public INavigationService _navigationService { get; }
 
         public ObservableCollection<SGARegistroMercancia> SGAListItems { get; set; }
+        public string PickerAlmacen { get => pickerAlmacen; set { pickerAlmacen = value; RaisePropertyChanged(); } }
 
         public SGARecepcionMercaderiaListViewModel(
             INavigationService navigationService,
@@ -45,7 +43,7 @@ namespace SGA.Prism.ViewModels
             await _navigationService.NavigateAsync("RecepcionMercaderia", par);
         }
 
-     
+
 
         private async void Continuar()
         {
@@ -56,6 +54,7 @@ namespace SGA.Prism.ViewModels
         {
             SGAListItems = new ObservableCollection<SGARegistroMercancia>();
             SGAListItems = message.getList();
+            //PickerAlmacen = message.Almacen;
         }
 
         private async void Add()

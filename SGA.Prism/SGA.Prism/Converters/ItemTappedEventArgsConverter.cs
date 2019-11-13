@@ -9,7 +9,7 @@ namespace SGA.Prism.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is ItemTappedEventArgs eventArgs))
-                throw new ArgumentException("Expected TappedEventArgs as value", nameof(value));
+                throw new ArgumentException("Esperando TappedEventArgs como valor", nameof(value));
 
             return eventArgs.Item;
         }

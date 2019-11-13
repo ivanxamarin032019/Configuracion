@@ -19,6 +19,14 @@ namespace SGA.Prism.ViewModels
         private IPageDialogService _dialogService;
         private bool botonGuardar;
         private string imagenCaptura;
+        private string transportista;
+        private string ordenInterna;
+        private string selectedAlmacen;
+        private string notas;
+        private int sets;
+        private int cajas;
+        private string nombreConductor;
+        private string referencia;
 
         public INavigationService _navigationService { get; }
         public bool BotonGuardar { get => botonGuardar; set { botonGuardar = value; RaisePropertyChanged(); } }
@@ -26,6 +34,14 @@ namespace SGA.Prism.ViewModels
         public DelegateCommand ButtonSelecImgCommand { get; }
         public DelegateCommand ButtonCommand { get; }
         public string ImagenCaptura { get => imagenCaptura; set { imagenCaptura = value; RaisePropertyChanged(); } }
+        public string Transportista { get => transportista; set { transportista = value; RaisePropertyChanged(); } }
+        public string OrdenInterna { get => ordenInterna; set { ordenInterna = value; RaisePropertyChanged(); } }  
+        public string SelectedAlmacen { get => selectedAlmacen; set { selectedAlmacen = value; RaisePropertyChanged(); } }
+        public string Notas { get => notas; set { notas = value; RaisePropertyChanged(); } }
+        public int Sets { get => sets; set { sets = value; RaisePropertyChanged(); } }
+        public int Cajas { get => cajas; set { cajas = value; RaisePropertyChanged(); } }
+        public string NombreConductor { get => nombreConductor; set { nombreConductor = value; RaisePropertyChanged(); } }
+        public string Referencia { get => referencia; set { referencia = value; RaisePropertyChanged(); } }
 
         public SGARecepcionMercaderiaViewModel(INavigationService navigationService, IPageDialogService dialogService) : base(navigationService)
         {
@@ -34,16 +50,29 @@ namespace SGA.Prism.ViewModels
             _dialogService = dialogService;
             ButtonCommand = new DelegateCommand(Button_Clicked);
             ButtonSelecImgCommand = new DelegateCommand(ButtonSelecImg_Cliked);
-
-
         }
 
-        public IList<string> AlmacenList
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            get
+            var par1 = parameters["Parametro1"];
+            if (par1 != null)
             {
-                return new List<string> { "Cantallops", "OyS", "Bcn" };
+                var infoRecuperada = (SGARegistroMercancia)par1;
+
+                SelectedAlmacen = infoRecuperada.Almacen;
+                OrdenInterna = infoRecuperada.OrdenInterna;
+                Transportista = infoRecuperada.NombreConductor;
+                Notas = infoRecuperada.Notas;
+                Sets= infoRecuperada.NumeroSets; 
+                Cajas = infoRecuperada.NumeroCajas;
+                NombreConductor = infoRecuperada.NombreConductor;
+                Referencia = infoRecuperada.ReferenciaTransportista;
             }
+            else
+            {
+                //return new List<string> { "Bryan", "Pau", "Oscar" };
+            }
+
         }
 
         public IList<string> TransportistaList
@@ -51,6 +80,14 @@ namespace SGA.Prism.ViewModels
             get
             {
                 return new List<string> { "Bryan", "Pau", "Oscar" };
+            }
+        }
+
+        public IList<string> AlmacenList
+        {
+            get
+            {
+                return new List<string> { "Cantallops", "OyS", "Bcn" };
             }
         }
 
@@ -81,17 +118,7 @@ namespace SGA.Prism.ViewModels
             //Stream stream = await signature.GetImageStreamAsync(SignatureImageFormat.Jpeg);
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            var par1 = parameters["Parametro1"];
-            if (par1 != null)
-            {
-                var infoRecuperada = (SGARegistroMercancia)par1;
-                //Todo: Mapear los datos al objeto de precarga de informacion
-            }
-
-
-        }
+        
 
     }
 }

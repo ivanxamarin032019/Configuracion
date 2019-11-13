@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Class="SGA.Prism.Views.SGARecepcionMercaderiaList"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
              xmlns:converters="clr-namespace:SGA.Prism.Converters;assembly=SGA.Prism"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="SGA.Prism.Views.SGARecepcionMercaderiaList"
-             Title="{Binding Title}">
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:template="clr-namespace:SGA.Prism.Views.Templates"
+             Title="{Binding Title}"
+             prism:ViewModelLocator.AutowireViewModel="True">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="ic_action_add_circle" Command="{Binding AddCommand}"/>
-    </ContentPage.ToolbarItems>
+
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -19,48 +18,71 @@
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Label Text="" />
-        <Label 
-            FontSize="Title"
-            BackgroundColor="Navy"
-            HorizontalOptions="CenterAndExpand"
-            Text="Recepción Mercadería"
-            TextColor="White"
-            Padding="10"/>
+        <Label Padding="10"
+               BackgroundColor="Navy"
+               FontSize="Title"
+               HorizontalOptions="CenterAndExpand"
+               Text="Recepción Mercadería"
+               TextColor="White" />
         <Label Text="" />
 
-        <Grid
-            Margin="50,10,50,50">
-            <ListView       Grid.Row="0"
-                            x:Name="MercadriaList" 
-                            BackgroundColor="#d9d9d9"
-                            ItemsSource="{Binding SGAListItems}"
-                            SeparatorColor="Navy">
-                <ListView.Behaviors>
-                    <prism:EventToCommandBehavior
-                        EventName="ItemTapped" Command="{Binding ItemTappedCommand}" 
-                        EventArgsConverter="{StaticResource ItemTappedConverter}" />
-                </ListView.Behaviors>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5">
-                                <!--<Switch IsToggled = "{Binding Leido}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />-->
-                                <CheckBox IsChecked= "{Binding Leido}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
-                                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Text="{Binding NombreConductor}" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button
-                Grid.Row="0"
-                HorizontalOptions="End"
-                VerticalOptions="End"
-                Command="{Binding ContinuarCommand}"
-                HeightRequest="100"
-                WidthRequest="100"
-                CornerRadius="50"
-                Text="+"/>
+        <Grid Margin="50,10,50,50">
+            <ContentView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <ListView x:Name="MercaderiaList"
+                          Grid.Row="0"
+                          BackgroundColor="#d9d9d9"
+                          HeightRequest="800"
+                          ItemsSource="{Binding SGAListItems}"
+                          RowHeight="90"
+                          SelectionMode="None"
+                          SeparatorColor="Gray"
+                          SeparatorVisibility="Default"
+                          VerticalOptions="EndAndExpand">
+
+                    <ListView.Behaviors>
+                        <prism:EventToCommandBehavior Command="{Binding ItemTappedCommand}"
+                                                      EventArgsConverter="{StaticResource ItemTappedConverter}"
+                                                      EventName="ItemTapped" />
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <template:SGARecepcionMercaderiaTemplate />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentView>
+
+            <Button Grid.Row="0"
+                    BackgroundColor="Navy"
+                    Command="{Binding ContinuarCommand}"
+                    CornerRadius="50"
+                    HeightRequest="50"
+                    HorizontalOptions="End"
+                    ImageSource="ic_action_add_circle"
+                    VerticalOptions="End"
+                    WidthRequest="50" />
+
         </Grid>
+        <StackLayout Margin="10"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Horizontal"
+                     VerticalOptions="EndAndExpand">
+
+            <Label FontSize="16"
+                   Text="Almacén:"
+                   TextColor="Black"
+                   VerticalOptions="Center" />
+            <Picker Title="Seleccionar almacén"
+                    FontSize="16"
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding PickerAlmacen, Mode=TwoWay}"
+                    SelectedItem="{Binding SelectedAlmacen, Mode=TwoWay}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+
+        </StackLayout>
     </StackLayout>
+
 </ContentPage>

@@ -1,12 +1,8 @@
-﻿using Newtonsoft.Json;
-using Prism;
+﻿using Prism;
 using Prism.Ioc;
-using SGA.Common.Helpers;
-using SGA.Common.Models;
 using SGA.Common.Service;
 using SGA.Prism.ViewModels;
 using SGA.Prism.Views;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -46,7 +42,7 @@ namespace SGA.Prism
             await NavigationService.NavigateAsync("Navigation/RecepcionMercaderiaList");
             //await NavigationService.NavigateAsync("Navigation/RecepcionMercaderia");
 
-            
+
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

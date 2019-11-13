@@ -56,7 +56,7 @@
                     Margin="10">
 
                     <Label Text="# orden interna:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry Keyboard="Numeric" Text="{Binding OrdenInterna, Mode=TwoWay}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </StackLayout>
             <!--orden interna-->
@@ -93,7 +93,7 @@
                     Margin="10">
 
                     <Label Text="# Referencia transportista:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry Keyboard="Numeric" Text="{Binding Referencia, Mode=TwoWay}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </StackLayout>
             <!--Referencia Transportista-->
@@ -112,7 +112,7 @@
                     Margin="10">
 
                     <Label Text="Nombre conductor:" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                    <Entry Keyboard="Text" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry Keyboard="Text" Text="{Binding NombreConductor, Mode=TwoWay}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </StackLayout>
             <!--Nombre conductor-->
@@ -131,7 +131,7 @@
                     Padding="10">
 
                     <Label Text="# cajas" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry Keyboard="Numeric" Text="{Binding Cajas, Mode=TwoWay}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
                 <StackLayout
                     BackgroundColor="White"
@@ -140,7 +140,7 @@
                     Padding="10">
 
                     <Label Text="# sets" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry Keyboard="Numeric" Text="{Binding Sets, Mode=TwoWay}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </StackLayout>
             <!--Cajas & set-->
@@ -158,7 +158,7 @@
                     Margin="10">
 
                     <Label Text="Notas: " TextColor="Black" FontSize="16" VerticalOptions="Center"/>
-                    <Entry Keyboard="Text" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    <Entry Keyboard="Text" Text="{Binding Notas, Mode=TwoWay}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
             </StackLayout>
             <!--Notas-->
